@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin dashboard - Buloba Royal College</title><link rel="icon" href="static/images/badge.jpg"><link rel="stylesheet" href="static/css/dashboard.css"></head><body>
+<div class="app"><aside class="side"><div class="brand"><img src="static/images/badge.jpg" alt="Badge"><div>Buloba Royal<small>Administration</small></div></div>
+<a href="#overview" class="on">Overview</a><a href="#performance">Performance</a><a href="#staff">Teachers</a><a href="#students">Students</a><a href="#notices">Notices</a><div class="sp"></div><a href="index.html">School website</a><a href="#" id="out">Sign out</a></aside>
+<main class="main"><div class="top"><div><h1>Admin dashboard</h1><p>Term 3, 2026 snapshot across the school</p></div><div class="who"><button class="btn ghost" onclick="print()">Print report</button><div class="av">AD</div></div></div>
+<section id="overview"><div class="kpis" id="kpis"></div>
+<div class="grid"><div class="card"><h3>Enrolment by class</h3><p class="sub">Students currently on roll</p><div class="chart" id="c1"></div></div>
+<div class="card"><h3>Grade distribution</h3><p class="sub">All subjects, all marked students</p><div class="chart" id="c2"></div></div></div></section>
+<section id="performance"><div class="grid"><div class="card"><h3>Average score by subject</h3><p class="sub">Out of 100</p><div class="chart" id="c3"></div></div>
+<div class="card"><h3>Average score by class</h3><p class="sub">Spot classes that need support</p><div class="chart" id="c4"></div></div></div></section>
+<section id="staff" class="card" style="margin-bottom:18px"><h3>Teachers and marks progress</h3><p class="sub">How much of each teacher's marking is entered</p><div class="tw"><table id="tt"></table></div></section>
+<section id="students" class="card" style="margin-bottom:18px"><div class="tools"><div><h3>Students</h3><p class="sub" style="margin:0">Overall average across subjects</p></div><div style="margin-left:auto"><label for="q">Search</label><input id="q" type="search" placeholder="Name or ID"></div><div><label for="cf">Class</label><select id="cf"></select></div><button class="btn alt" id="ex">Export CSV</button></div><div class="tw"><table id="st"></table></div></section>
+<section id="notices" class="card"><h3>Notices</h3><p class="sub">Latest school updates</p><div class="notice">Mark entry deadline: Friday 23 October 2026<small>All teachers</small></div><div class="notice">Visitation day follow-ups: parents' feedback forms due<small>Administration</small></div><div class="notice">UACE 2025 results press release approved<small>Communications</small></div></section>
+</main></div><script src="static/js/common.js"></script><script src="static/js/admin.js"></script></body></html>

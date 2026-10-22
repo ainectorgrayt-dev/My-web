@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Staff Portal - Buloba Royal College</title><link rel="icon" href="badge.jpg"><link rel="stylesheet" href="dashboard.css"></head>
+<body><main class="login">
+<section class="art"><img src="
+badge.jpg" alt="Buloba Royal College badge" style="height:80px;width:80px;object-fit:contain;background:#fff;border-radius:14px;padding:6px;margin-bottom:18px">
+<h2>Marks and grades, without the paperwork.</h2><p>Staff portal for Buloba Royal College. The sky is the limit.</p></section>
+<form id="f"><h1 style="color:var(--royal)">Sign in</h1>
+<div><label for="role" style="font-size:.8rem;color:var(--mute)">I am a</label><select id="role"><option value="teacher">Teacher</option><option value="student">Student</option><option value="admin">Administrator</option></select></div>
+<div id="tw"><label for="who" style="font-size:.8rem;color:var(--mute)">Teacher</label><select id="who"></select></div>
+<div id="sw" style="display:none"><label for="sid" style="font-size:.8rem;color:var(--mute)">Student ID</label><input id="sid" type="text" placeholder="e.g. BRC2026001" autocomplete="username" style="width:100%"></div>
+<div><label for="pw" style="font-size:.8rem;color:var(--mute)">Password</label><input id="pw" type="password" autocomplete="current-password"></div>
+<p class="err" id="err" role="alert"></p><button class="btn">Sign in</button>
+<p style="font-size:.8rem;color:var(--mute)">Demo passwords: teacher123 (teachers), student123 (students, ID such as BRC2026001) and admin123 (admin). Change these before going live.</p>
+<a href="index.html" style="color:var(--royal);font-size:.9rem">Back to school website</a></form></main>
+<script src="common.js"></script><script>
+const who=document.getElementById('who'),role=document.getElementById('role');
+who.innerHTML=BRC.teachers.map(t=>`<option value="${t.id}">${BRC.esc(t.name)} (${t.subject})</option>`).join('');
+const show=()=>{tw.style.display=role.value==='teacher'?'':'none';sw.style.display=role.value==='student'?'':'none'};role.onchange=show;
+f.onsubmit=e=>{e.preventDefault();const r=role.value,pw={admin:'admin123',teacher:'teacher123',student:'student123'}[r];
+ if(r==='student'){const st=BRC.students.find(x=>x.id===sid.value.trim().toUpperCase());
+  if(!st||document.getElementById('pw').value!==pw){err.textContent='Student ID or password is wrong. Check both and try again.';return}
+  sessionStorage.setItem('brc_user',JSON.stringify({role:'student',id:st.id}));location.href='student.html';return}
+ if(document.getElementById('pw').value!==pw){err.textContent='Wrong password. Check it and try again.';return}
+ sessionStorage.setItem('brc_user',JSON.stringify(r==='admin'?{role:'admin',name:'Administrator'}:{role:'teacher',id:who.value}));
+ location.href=r==='admin'?'admin.html':'teacher.html'};
+</script></body></html>

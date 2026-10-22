@@ -1,0 +1,11 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teacher dashboard - Buloba Royal College</title><link rel="icon" href="badge.jpg"><link rel="stylesheet" href="dashboard.css"></head><body>
+<div class="app"><aside class="side"><div class="brand"><img src="
+badge.jpg" alt="Badge"><div>Buloba Royal<small>Teachers</small></div></div>
+<a href="#" class="on">Mark entry</a><a href="#analysis">Class analysis</a><div class="sp"></div><a href="index.html">School website</a><a href="#" id="out">Sign out</a></aside>
+<main class="main"><div class="top"><div><h1 id="hi">Marks</h1><p>Enter coursework and exam marks. Totals, grades and positions update as you type.</p></div><div class="who"><div class="av" id="av"></div></div></div>
+<div class="card" style="margin-bottom:18px"><div class="tools"><div><label for="cls">Class</label><select id="cls"></select></div><div><label for="sub">Subject</label><select id="sub"></select></div>
+<button class="btn" id="save">Save marks</button><button class="btn ghost" id="ex">Export CSV</button><button class="btn ghost" onclick="print()">Print results</button><button class="btn ghost" id="clr">Clear class</button></div>
+<div class="tw"><table id="tb"></table></div><p class="sub" style="margin-top:10px">Coursework is out of 40 and exam out of 60. Leave a row empty if the student was absent. Press Enter to move to the next row.</p></div>
+<section id="analysis"><div class="kpis" id="kp"></div><div class="grid"><div class="card"><h3>Grade distribution</h3><p class="sub">This class and subject</p><div class="chart" id="g1"></div></div><div class="card"><h3>Top five students</h3><p class="sub">Ranked by total</p><div class="chart" id="g2"></div></div></div></section>
+</main></div><script src="common.js"></script><script src="teacher.js"></script></body></html>

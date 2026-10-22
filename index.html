@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="badge.jpg">
+<title>Buloba Royal College - The Sky Is The Limit</title>
+<style>
+:root{--royal:#1e2d8a;--royal-dark:#16206b;--orange:#d9823f;--light:#f8f9ff;--text:#1f2937}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Arial,sans-serif}
+html{scroll-behavior:smooth} body{background:var(--light);color:var(--text);line-height:1.6;transition:background.3s,color.3s}
+.news-ticker{background:var(--orange);color:white;overflow:hidden;white-space:nowrap;padding:8px 0;position:fixed;top:0;z-index:1001;width:100%}
+.ticker-track{display:inline-block;animation:ticker 30s linear infinite} @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+nav{position:fixed;top:32px;width:100%;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);display:flex;justify-content:space-between;align-items:center;padding:14px 6%;box-shadow:0 4px 20px rgba(0,0,0,0.05)}
+.logo{font-weight:900;font-size:1.4rem;color:var(--royal)}.logo span{color:var(--orange)}
+nav ul{display:flex;list-style:none;gap:20px} nav ul a{text-decoration:none;color:var(--text);font-weight:600}
+.btn{background:var(--royal);color:white;padding:12px 26px;border-radius:30px;font-weight:700;border:2px solid var(--royal);transition:.3s;display:inline-block;text-decoration:none;text-align:center;cursor:pointer}
+.btn-orange{background:var(--orange);border-color:var(--orange)}
+.whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;z-index:999;box-shadow:0 10px 30px rgba(0,0,0,0.2);text-decoration:none}
+.dark-btn{background:white;border:1px solid #ddd;width:90px;height:36px;border-radius:20px;cursor:pointer;font-weight:700}
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:space-between;padding:120px 6% 60px;overflow:hidden;background:var(--royal-dark) url('video-poster.jpg') center/cover}
+.hero-content{max-width:600px;color:white}.hero-content h1{font-size:3.5rem;font-weight:900;line-height:1.1}.hero-content h1 span{color:var(--orange)}
+.badge-hero{background:rgba(255,255,255,0.15);padding:6px 12px;border-radius:20px;display:inline-block;margin-bottom:15px;font-size:0.8rem;letter-spacing:1px}
+.stats-hero{display:flex;gap:30px;margin-top:20px}.stats-hero h3{font-size:2rem;color:var(--orange)}
+.countdown-card{background:white;color:var(--royal);padding:30px;border-radius:20px;text-align:center;min-width:320px;box-shadow:0 20px 60px rgba(0,0,0,0.2)}
+.countdown-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:15px 0}.countdown-grid div{background:var(--light);padding:10px;border-radius:10px}
+section{padding:90px 6%}.section-head{text-align:center;margin-bottom:40px}.section-head h2{font-size:2.5rem;color:var(--royal)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.values-card{background:var(--royal);color:white;border-radius:24px;display:grid;grid-template-columns:400px 1fr;overflow:hidden}
+.values-card img{width:100%;height:100%;object-fit:cover;min-height:400px}.values-content{padding:40px}
+.values-content ul{list-style:none;margin-top:20px}.values-content li{padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.1)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.gallery-item{background:white;border-radius:16px;overflow:hidden;text-align:center;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,0.05);transition:.3s;border:2px solid transparent;font-weight:700}.gallery-item:hover{border-color:var(--orange);transform:translateY(-5px)}.gallery-item img{width:100%;height:220px;object-fit:cover}.gallery-item p{padding:12px}
+.academic-banner{background:linear-gradient(135deg,var(--royal),var(--royal-dark));color:white;border-radius:24px;padding:40px;display:grid;grid-template-columns:1.2fr 0.8fr;gap:30px;align-items:center}
+.academic-banner img{width:100%;border-radius:12px;height:320px;object-fit:cover;margin-top:15px}
+.testimonials{position:relative;height:220px}.testi{position:absolute;opacity:0;transition:.5s;background:rgba(255,255,255,0.1);padding:20px;border-radius:12px;width:100%}.testi.active{opacity:1}
+.teachers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.teacher-card{background:white;padding:30px;border-radius:20px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.05)}.avatar{width:70px;height:70px;background:var(--royal);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 15px;font-weight:800}
+.admission-form{background:white;padding:40px;border-radius:20px;max-width:700px;margin:0 auto;box-shadow:0 10px 40px rgba(0,0,0,0.06)}.grid-2-form{display:grid;grid-template-columns:1fr 1fr;gap:15px} input,textarea,select{width:100%;padding:14px;border:1px solid #ddd;border-radius:10px;margin-bottom:15px;font-size:1rem} textarea{height:100px}
+.faq-container{max-width:700px;margin:0 auto}.faq-item{border-bottom:1px solid #ddd;padding:15px 0;cursor:pointer}.faq-q{display:flex;justify-content:space-between;font-weight:700}.faq-a{display:none;padding-top:10px;opacity:.7}.faq-item.active .faq-a{display:block}
+.lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:none;align-items:center;justify-content:center;z-index:2000;flex-direction:column}.lightbox.active{display:flex} #closeLightbox{position:absolute;top:20px;right:30px;color:white;font-size:40px;cursor:pointer}
+footer{background:#0f1540;color:white;padding:50px 6%;text-align:center}
+.reveal{opacity:0;transform:translateY(30px);transition:.8s}.reveal.active{opacity:1;transform:translateY(0)}
+body.dark{background:#0f1230;color:white} body.dark nav{background:rgba(15,18,48,0.95)} body.dark nav ul a{color:white} body.dark .gallery-item, body.dark .teacher-card, body.dark .admission-form, body.dark .countdown-card{background:#1a1f4a;color:white} body.dark .section-head h2{color:white} body.dark #admissions{background:#0f1230!important}
+@media(max-width:900px){.hero{flex-direction:column;gap:30px}nav ul{display:none}.grid-2,.gallery-grid,.teachers-grid,.grid-2-form{grid-template-columns:1fr}.values-card{grid-template-columns:1fr}.academic-banner{grid-template-columns:1fr}.countdown-card{width:100%}}
+
+.menu-btn{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer;flex-direction:column;justify-content:center;gap:5px;align-items:center}
+.menu-btn span{display:block;width:24px;height:3px;background:var(--royal);border-radius:2px;transition:.25s}
+nav.open .menu-btn span:nth-child(1){transform:translateY(8px) rotate(45deg)}nav.open .menu-btn span:nth-child(2){opacity:0}nav.open .menu-btn span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+body{overflow-x:hidden}img{max-width:100%}
+@media(max-width:1100px){nav ul{gap:12px;font-size:.9rem}}
+@media(max-width:900px){
+ nav{flex-wrap:wrap;padding:8px 5%;max-height:calc(100vh - 32px);overflow-y:auto}
+ .menu-btn{display:flex}
+ nav ul,nav .nav-actions{display:none;width:100%;order:3}
+ nav.open ul{display:flex;flex-direction:column;gap:0;padding-top:8px}
+ nav.open ul a{display:block;padding:13px 4px;border-bottom:1px solid #e6e9f5}
+ nav.open .nav-actions{display:flex!important;flex-wrap:wrap;padding:14px 0 6px}
+ nav.open .nav-actions .btn,nav.open .nav-actions .dark-btn{flex:1;min-height:44px}
+ body.dark nav.open ul a{border-color:rgba(255,255,255,.15)}
+ .logo{font-size:1.1rem}
+ .hero{padding:130px 5% 50px;min-height:auto}
+ .hero-content h1{font-size:2.5rem}
+ .stats-hero{gap:18px;flex-wrap:wrap}.stats-hero h3{font-size:1.6rem}
+ .countdown-card{min-width:0;width:100%;padding:22px}
+ section{padding:60px 5%}.section-head h2{font-size:1.9rem}.about-h{font-size:1.9rem!important}
+ .grid-2{gap:26px}
+ .values-card img{min-height:0;height:240px}.values-content{padding:24px}
+ .academic-banner{padding:22px}.academic-banner img{height:220px}
+ .testimonials{height:300px}
+ .gallery-item img{height:200px}
+ .admission-form{padding:22px}
+ .whatsapp-float{width:52px;height:52px;bottom:14px;right:14px;font-size:12px}
+ #lbImg{max-width:94vw!important}
+ input,textarea,select{font-size:16px}
+}
+@media(max-width:480px){.news-ticker{font-size:.8rem}.hero-content h1{font-size:2.1rem}.btn{padding:12px 20px}}
+
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(20,30,99,.88),rgba(30,45,138,.45))}
+.hero>.hero-content,.hero>.countdown-card{position:relative;z-index:2}
+@media(prefers-reduced-motion:reduce){.hero-video{display:none}}
+@media(max-width:900px){.hero::before{background:linear-gradient(180deg,rgba(20,30,99,.85),rgba(30,45,138,.6))}}
+</style>
+</head>
+<body>
+
+<div class="news-ticker">
+  <div class="ticker-track">
+    <span>UACE 2025 RESULTS OUT - WE SHINED | VISITATION DAY - SAT 10TH OCT 2026 | SPORTS DAY CHAMPIONS | ADMISSIONS FOR 2026 OPEN | BULOBA ROYAL COLLEGE - THE SKY IS THE LIMIT | </span>
+    <span>UACE 2025 RESULTS OUT - WE SHINED | VISITATION DAY - SAT 10TH OCT 2026 | SPORTS DAY CHAMPIONS | ADMISSIONS FOR 2026 OPEN | BULOBA ROYAL COLLEGE - THE SKY IS THE LIMIT | </span>
+  </div>
+</div>
+
+<nav id="nav">
+  <div class="logo" style="display:flex;align-items:center;gap:10px"><img src=" badge.jpg" alt="Buloba Royal College badge" style="height:38px;width:auto">BULOBA <span>ROYAL</span></div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#values">Values</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#academics">Results</a></li>
+    <li><a href="#teachers">Staff</a></li>
+    <li><a href="#admissions">Admissions</a></li>
+  </ul>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+  <div class="nav-actions" style="display:flex;gap:10px;align-items:center">
+    <button id="darkToggle" class="dark-btn">Dark Mode</button>
+    <a href="login.html" class="btn btn-orange" style="padding:8px 18px">Staff Portal</a><a href="#admissions" class="btn" style="padding:8px 18px">Apply Now</a>
+  </div>
+</nav>
+
+<a href="https://wa.me/256730142197" target="_blank" class="whatsapp-float">CHAT</a>
+
+<section class="hero" id="home">
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="video-poster.jpg" aria-hidden="true"><source src="campus.mp4" type="video/mp4"></video>
+  <div class="hero-content reveal">
+    <p class="badge-hero">WELCOME TO BULOBA ROYAL COLLEGE</p>
+    <h1>The Sky <span>Is The Limit</span></h1>
+    <p>Victoria Building and Administration Block - Where discipline meets excellence. From our aerial campus in Buloba to Royal Blue champions.</p>
+    <div class="stats-hero">
+      <div><h3 class="counter" data-target="1200">0</h3><p>Students</p></div>
+      <div><h3 class="counter" data-target="65">0</h3><p>Teachers</p></div>
+      <div><h3 class="counter" data-target="98">0</h3><p>Percent Pass Rate</p></div>
+    </div>
+    <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap">
+      <a href="#admissions" class="btn btn-orange">Apply for 2026</a>
+      <a href="#gallery" class="btn" style="background:white;color:#1e2d8a">Virtual Tour</a>
+    </div>
+  </div>
+  <div class="countdown-card reveal">
+    <h4>VISITATION DAY</h4>
+    <h2>10th Oct 2026</h2>
+    <div id="countdown" class="countdown-grid"></div>
+    <p>We look forward to seeing you</p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="grid-2 reveal">
+    <div>
+      <h2 class="about-h" style="font-size:2.6rem;color:var(--royal)">Why Buloba Royal College</h2>
+      <p style="margin:15px 0">Sports are a very important part of school life because they help students stay healthy, active, and disciplined. Through sports, students learn teamwork, confidence, and good exercise habits. At BRC we balance academics and sports.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;font-weight:600">
+        <div>Smartness and Discipline</div><div>Academic Excellence</div><div>God Fearing and Equity</div><div>Transparency and Time Management</div>
+      </div>
+    </div>
+    <div style="background:white;padding:10px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.05)">
+      <img src=" victoria-building.jpg" style="width:100%;border-radius:12px;height:350px;object-fit:cover" alt="Victoria Building">
+      <p style="text-align:center;margin-top:10px;font-weight:700">Victoria Building and Administration Block</p>
+    </div>
+  </div>
+</section>
+
+<section id="values">
+  <div class="values-card reveal">
+    <img src=" our-values.jpg" alt="Our Values">
+    <div class="values-content">
+      <h3>OUR VALUES</h3>
+      <ul>
+        <li>God Fearing</li><li>Academic Excellence</li><li>Equity</li><li>Smartness</li><li>Discipline</li><li>Transparency</li><li>Time Management</li>
+      </ul>
+      <p style="margin-top:20px;opacity:0.8">These values guide every student at Buloba Royal College to become a responsible citizen. The Sky is The Limit.</p>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" style="background:white">
+  <div class="section-head reveal"><h2>Campus Gallery</h2><p>Administration Block, Victoria Building, Sports, Smart Students</p></div>
+  <div class="gallery-grid reveal">
+    <div class="gallery-item"><administration.jpg"><p>Administration Block - Aerial View</p></div>
+    <div class="gallery-item"><img src=" our-values.jpg"><p>Our Values Board</p></div>
+    <div class="gallery-item"><img src=" victoria-building.jpg"><p>Victoria Building</p></div>
+    <div class="gallery-item"><img src=" sports.jpg"><p>Football Champions - Sports Day</p></div>
+    <div class="gallery-item"><img src=" students.jpg"><p>Smart Students - Discipline</p></div>
+    <div class="gallery-item"><img src=" uace-2025.jpg"><p>UACE 2025 Celebration - Bukedde TV</p></div>
+  </div>
+</section>
+
+<section id="academics">
+  <div class="academic-banner reveal">
+    <div>
+      <p style="color:#d9823f;font-weight:800">CONGRATULATIONS CLASS OF 2025</p>
+      <h2>UACE 2025 - BRC Shines on Bukedde TV</h2>
+      <p style="margin:15px 0">100 percent hard work, late-night revision, and discipline paid off. University gates are open. 97.4 percent pass rate.</p>
+      <a href="https://www.facebook.com/share/p/1Dmtd6RfWp/" target="_blank" class="btn btn-orange">Watch Bukedde TV Report</a>
+      <img src=" uace-2025.jpg" alt="UACE Celebration">
+    </div>
+    <div class="testimonials">
+      <div class="testi active">My son joined BRC in S.1, now he has 19 points in UACE. The Sky is The Limit indeed. - Parent</div>
+      <div class="testi">Discipline and smartness made me who I am. - Former Student, 2023</div>
+      <div class="testi">Best sports and academics balance in Wakiso District. - Senior Six Student</div>
+      <div class="testi">Buloba Royal College shaped my future. From S.1 to University. - Alumni</div>
+    </div>
+  </div>
+</section>
+
+<section id="teachers">
+  <div class="section-head reveal"><h2>Our Leadership</h2></div>
+  <div class="teachers-grid reveal">
+    <div class="teacher-card"><div class="avatar">HM</div><h4>Headteacher</h4><p>Administration Block</p><p style="font-size:0.9rem;margin-top:8px">Leading with discipline and vision</p></div>
+    <div class="teacher-card"><div class="avatar">DOS</div><h4>Director of Studies</h4><p>Academics Excellence</p><p style="font-size:0.9rem;margin-top:8px">UACE 2025 success story - 98 percent pass</p></div>
+    <div class="teacher-card"><div class="avatar">DD</div><h4>Dean of Discipline</h4><p>Smartness and Discipline</p><p style="font-size:0.9rem;margin-top:8px">Smartness is our identity at BRC</p></div>
+  </div>
+</section>
+
+<section id="admissions" style="background:#f3f5ff">
+  <div class="section-head reveal"><h2>Admissions 2026 Open</h2><p>Join Buloba Royal College - Fill form and we will contact you</p></div>
+  <form id="admissionForm" class="admission-form reveal">
+    <div class="grid-2-form">
+      <input type="text" id="name" placeholder="Student Full Name *" required>
+      <input type="text" id="class" placeholder="Class Seeking (S.1 - S.6) *" required>
+    </div>
+    <div class="grid-2-form">
+      <input type="tel" id="phone" placeholder="Parent Phone +256... *" required>
+      <input type="email" id="email" placeholder="Parent Email">
+    </div>
+    <div class="grid-2-form">
+      <input type="text" id="location" placeholder="Your District">
+      <select id="boarding"><option>Boarding or Day</option><option>Boarding</option><option>Day Scholar</option></select>
+    </div>
+    <textarea id="message" placeholder="Any message..."></textarea>
+    <button type="submit" class="btn btn-orange" style="width:100%">Submit Application via WhatsApp</button>
+    <p id="formStatus" style="margin-top:10px;text-align:center;font-weight:700"></p>
+    <p style="text-align:center;margin-top:10px;font-size:0.9rem">Or Call: +256730142197 / +256782645850</p>
+  </form>
+</section>
+
+<section id="faq">
+  <div class="section-head reveal"><h2>Frequently Asked Questions</h2></div>
+  <div class="faq-container reveal">
+    <div class="faq-item"><div class="faq-q">Where is Buloba Royal College located <span>+</span></div><div class="faq-a">Wakiso - Mityana Road, Buloba. Surrounded by green, easy access from Kampala.</div></div>
+    <div class="faq-item"><div class="faq-q">When is Visitation Day <span>+</span></div><div class="faq-a">Saturday 10th October 2026. We look forward to seeing you. Safe journey.</div></div>
+    <div class="faq-item"><div class="faq-q">How to apply for admission <span>+</span></div><div class="faq-a">Fill admissions form above or call +256730142197 or +256782645850. Admissions for S.1 to S.6 are open.</div></div>
+    <div class="faq-item"><div class="faq-q">What are your school fees <span>+</span></div><div class="faq-a">Contact administration for current fees structure. We have flexible payment plans for boarding and day scholars.</div></div>
+    <div class="faq-item"><div class="faq-q">Do you have boarding facilities <span>+</span></div><div class="faq-a">Yes, we have separate boys and girls hostels including Victoria Building and Nabagereka Girls Hostel with full-time matrons.</div></div>
+  </div>
+</section>
+
+<footer>
+  <h3>BULOBA ROYAL COLLEGE - THE SKY IS THE LIMIT</h3>
+  <p style="margin-top:10px">Wakiso Mityana Road, Buloba | WhatsApp +256730142197 | Call +256782645850</p>
+  <p style="opacity:.6;margin-top:15px">2026 Buloba Royal College. All Rights Reserved. Designed for Excellence.</p>
+</footer>
+
+<div id="lightbox" class="lightbox"><span id="closeLightbox">X</span><img id="lbImg" style="max-width:90vw;max-height:85vh;border-radius:12px"><p id="lbCaption" style="color:white;margin-top:15px;font-weight:700"></p></div>
+
+<script>
+// Reveal animation
+const reveals=document.querySelectorAll('.reveal');
+reveals.forEach(r=>{
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('active')})
+  },{threshold:0.15});
+  obs.observe(r);
+});
+
+// Counter animation
+const counters=document.querySelectorAll('.counter');
+counters.forEach(c=>{
+  const update=()=>{
+    const target=+c.getAttribute('data-target');
+    const count=+c.innerText;
+    const inc=target/100;
+    if(count<target){c.innerText=Math.ceil(count+inc);setTimeout(update,20)} else c.innerText=target;
+  }; update();
+});
+
+// Countdown to Visitation Day
+const countdownEl=document.getElementById('countdown');
+const targetDate=new Date('Oct 10, 2026 08:00:00').getTime();
+setInterval(()=>{
+  const now=new Date().getTime();
+  const dist=targetDate-now;
+  if(dist<0){countdownEl.innerHTML="Today is Visitation Day";return}
+  const d=Math.floor(dist/(1000*60*60*24));
+  const h=Math.floor((dist%(1000*60*60*24))/(1000*60*60));
+  const m=Math.floor((dist%(1000*60*60))/(1000*60));
+  const s=Math.floor((dist%(1000*60))/1000);
+  countdownEl.innerHTML=`<div><b>${d}</b><br>Days</div><div><b>${h}</b><br>Hrs</div><div><b>${m}</b><br>Min</div><div><b>${s}</b><br>Sec</div>`;
+},1000);
+
+// Testimonials carousel
+let testiIndex=0;
+const testis=document.querySelectorAll('.testi');
+setInterval(()=>{
+  testis.forEach(t=>t.classList.remove('active'));
+  testiIndex=(testiIndex+1)%testis.length;
+  testis[testiIndex].classList.add('active');
+},4000);
+
+// Dark Mode toggle - KEEP THIS FEATURE
+document.getElementById('darkToggle').addEventListener('click',()=>{
+  document.body.classList.toggle('dark');
+  const btn=document.getElementById('darkToggle');
+  btn.innerText=document.body.classList.contains('dark')?'Light Mode':'Dark Mode';
+});
+
+// Gallery Lightbox - KEEP THIS FEATURE
+const lightbox=document.getElementById('lightbox');
+const lbImg=document.getElementById('lbImg');
+const lbCaption=document.getElementById('lbCaption');
+document.querySelectorAll('.gallery-item').forEach(item=>{
+  item.addEventListener('click',()=>{
+    const img=item.querySelector('img');
+    const caption=item.querySelector('p');
+    lbImg.src=img.src;
+    lbCaption.innerText=caption.innerText;
+    lightbox.classList.add('active');
+  });
+});
+document.getElementById('closeLightbox').addEventListener('click',()=>lightbox.classList.remove('active'));
+lightbox.addEventListener('click',(e)=>{if(e.target==lightbox) lightbox.classList.remove('active')});
+
+// FAQ Accordion - KEEP THIS FEATURE
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.addEventListener('click',()=>{
+    const wasActive=item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('active'); i.querySelector('.faq-q span').innerText='+';});
+    if(!wasActive){item.classList.add('active'); item.querySelector('.faq-q span').innerText='-';}
+  });
+});
+
+// Form to WhatsApp - KEEP THIS FEATURE
+document.getElementById('admissionForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const name=document.getElementById('name').value;
+  const cls=document.getElementById('class').value;
+  const phone=document.getElementById('phone').value;
+  const email=document.getElementById('email').value;
+  const loc=document.getElementById('location').value;
+  const board=document.getElementById('boarding').value;
+  const msg=document.getElementById('message').value;
+  const text=`Hello Buloba Royal College%0A%0ANew Admission:%0AName: ${name}%0AClass: ${cls}%0APhone: ${phone}%0AEmail: ${email}%0ADistrict: ${loc}%0ABoarding: ${board}%0AMessage: ${msg}%0A%0AThe Sky Is The Limit`;
+  document.getElementById('formStatus').innerText="Redirecting to WhatsApp...";
+  window.open(`https://wa.me/256730142197?text=${text}`,'_blank');
+  setTimeout(()=>{document.getElementById('formStatus').innerText="Application sent. We will contact you soon.";},1000);
+});
+
+// Fallback for missing images
+document.addEventListener('error', function(e){
+  if(e.target.tagName === 'IMG'){
+    e.target.src = 'https://via.placeholder.com/800x500/1e2d8a/ffffff?text=Buloba+Royal+College';
+  }
+}, true);
+
+// Mobile menu
+const navEl=document.getElementById('nav'),mb=document.getElementById('menuBtn');
+mb.onclick=()=>{const o=navEl.classList.toggle('open');mb.setAttribute('aria-expanded',o);mb.setAttribute('aria-label',o?'Close menu':'Open menu')};
+navEl.querySelectorAll('ul a').forEach(a=>a.addEventListener('click',()=>{navEl.classList.remove('open');mb.setAttribute('aria-expanded',false)}));
+</script>
+</body>
+</html>
